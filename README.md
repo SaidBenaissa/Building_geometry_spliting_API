@@ -26,3 +26,6 @@ sa =gspread.service_account('credentials.json',scope)
 sh = sa.open("output")
 
 wks = sh.worksheet("Sheet1")```
+
+
+*** connect to GoogleSheet API:**

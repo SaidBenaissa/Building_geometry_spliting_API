@@ -1,5 +1,7 @@
+//there is a typo in "building limits causing json interpreter to not recognize the keys"
+
 {   
-    "building_limits":
+    "building_limitss":
     { "type": "FeatureCollection",
     "features": [
       {
@@ -22,8 +24,8 @@
                 51.33061163769853
               ],
               [
-                8.41552734375,
-                51.33061163769853
+                9.41552734375,
+                50.33061163769853
               ],
               [
                 8.41552734375,
@@ -127,7 +129,7 @@
         }
       }
     ]
-  },"height_plateaus":
+  },"height_plateaaus":
   { "type": "FeatureCollection",
     "features": [
       {

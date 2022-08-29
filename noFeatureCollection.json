@@ -1,6 +1,7 @@
+// "The input Type is required to be a Feature Collection"
 {   
     "building_limits":
-    { "type": "FeatureCollection",
+    { "type": "sadsFeatureCollection",
     "features": [
       {
         "type": "Feature",
@@ -128,7 +129,7 @@
       }
     ]
   },"height_plateaus":
-  { "type": "FeatureCollection",
+  { "type": "Polygon",
     "features": [
       {
         "type": "Feature",

@@ -1,3 +1,5 @@
+//Height plateaus outide of building limit: Building limit is exceeded by the heigh plateaus = by manual not allowed
+
 {   
     "building_limits":
     { "type": "FeatureCollection",
@@ -22,8 +24,8 @@
                 51.33061163769853
               ],
               [
-                8.41552734375,
-                51.33061163769853
+                9.41552734375,
+                50.33061163769853
               ],
               [
                 8.41552734375,

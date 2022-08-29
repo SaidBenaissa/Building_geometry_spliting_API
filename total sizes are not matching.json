@@ -1,3 +1,6 @@
+// by manual we are not allowed to have gaps (building limit but no height plateau) if total area of building limit is not equal to total area of heigh plateau we get error
+//check input
+
 {   
     "building_limits":
     { "type": "FeatureCollection",
@@ -40,6 +43,10 @@
           "type": "Polygon",
           "coordinates": [
             [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
               [
                 9.404296875,
                 50.00773901463687
