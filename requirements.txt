@@ -1,6 +1,9 @@
 flask
 flask-restful
 typing_extensions
+gspread
+pandas
+json
 numpy
 typing
 urllib3

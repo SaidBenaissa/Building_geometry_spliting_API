@@ -346,8 +346,19 @@ Visit your deployed container by opening the service `URL=https://said-project-3
 
 * Postman API testing
   Documentation via postman if you want to develop an application that will consume our API service:
-API testing documentation and also different language code (js, py, java..). You can test the API via the url below:
+API testing documentation and also different language code (js, py, java..). You can test the API via the URL below:
 
     <https://documenter.getpostman.com/view/10000194/VUxNQ7QW>
 
-![ API testing documentation and also defferent language code (js, py, java ....) ](./pictures/postmanTest.png)
+![ API testing documentation and also different language code (js, py, java ....) ](./pictures/postmanTest.png)
+
+
+
+* Data input - Assumption
+  
+  * Case 1: `ValidData.json` -> BuildingLimits, HeightPlateaus -> valid inputs.
+  * Case 2: `Keys missing.json` -> `building_limitss`, `height_plateaaus` keys aren't valid. There is a typo in "building limits causing json interpreter to not recognize the keys"
+
+  * Case 3: `noFeatureCollection.json` -> sadsFeatureCollection -> isn't FeatureCollection.
+  * Case 4: `HpOutsideOfBL.json` -> Height plateaus outside of building limit: Building limit is exceeded by the height plateaus = by manual not allowed
+
