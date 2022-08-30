@@ -20,43 +20,43 @@ api = Api(app)
 
 data =''
 
-#connects to google sheets API
+# Connects to google sheets API
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 sa = gspread.service_account('credentials.json', scope)
 sh = sa.open("output_final")
 wks = sh.worksheet("Sheet1")
 
-#creates the column names in the google sheet
+# Creates the column names in the google sheet
 def createColNames():
     wks.update('A1','ObjectID')
     wks.update('B1','ObjectType')
     wks.update('C1','Data')
     wks.update('D1','Plateaus')
     
-#creates row names for google sheet
+# Creates row names for google sheet
 createColNames()
 
 id = wks.acell('E1').value
 
-#Counter autoincrements ID for grabbing object by ID
+# Counter autoincrements ID for grabbing object by ID
 def increaseID():
     id = int(wks.acell('E1').value)
     id = id +1
     wks.update('E1',id)
     return id
 
-#creates new limit line on google sheet
+# Creates new limit line on google sheet
 class NewLimitObject:
  
     def __init__(self,data,id):
         self.id = id
         self.data = data
-        #uploads values to google sheet
+        # Uploads values to google sheet
         wks.update('A'+ id, id)
         wks.update('B'+ id, 'Building Limit')
         wks.update('C'+ id, data)
 
-#creates new plateau line on google sheet
+# Creates new plateau line on google sheet
 class NewPlateauObject:
 
     def __init__(self,plateau,plateauData,id):
@@ -69,8 +69,7 @@ class NewPlateauObject:
         wks.update('D'+ id, plateau)
 
 
-#verifies provided Data
-#makes sure that building limits and height plateaus as well as the indidvidual object type is 'polygon'
+# Verifies provided Data - makes sure that building limits and height plateaus as well as the indidvidual object type is 'polygon'
 def checkInput(data):
     build_temp = []
     height_temp = []
@@ -78,19 +77,19 @@ def checkInput(data):
     height_area = 0
     
     valid = 0
-    
+    # This first for loop checks if the keys ‘building limits’ as well as ‘height plateaus’ exist in the data that has been input.
     for item in data.keys():
         if item != 'building_limits' and item != 'height_plateaus':
-            #checks if 'building limits' and 'height_plateaus' exist
+            # Checks if 'building limits' and 'height_plateaus' keys exist
             valid = 1
             break
         else:
             valid = 0
 
-
+    # This part of the code checks if the type of the input is a collection of features for both, building limits and height plateaus
     if valid == 0:
         if data['building_limits']['type'] == 'FeatureCollection' and data['height_plateaus']['type'] == 'FeatureCollection':
-            #checks if both inputs are feature collections
+            # Checks if both inputs are feature collections
             pass
         else:
             valid = 2
@@ -98,10 +97,11 @@ def checkInput(data):
         buildLen = len(data['building_limits']['features'])
         heightLen = len(data['height_plateaus']['features'])
         if buildLen != heightLen:
-            #checks if height_plateaus and building_limits have the same amount of data points
+            # Checks if height_plateaus and building_limits have the same amount of data points
             valid = 3
         else:
-        #calculates total area of height plateaus and building limits and checks if they are equal
+        # The next part retrieves all individual coordinates and stores them in a temporary array. At the end the sum is calculated and compared between height plateaus and building limit. 
+        # (calculates total area of height plateaus and building limits and checks if they are equal)
             for items in data['building_limits']['features']:
                 for items2 in items['geometry']['coordinates']:
                     for items3 in items2:
@@ -116,18 +116,22 @@ def checkInput(data):
                         height_temp.append(items3[0])
                         height_temp.append(items3[1])
         if height_area != build_area:
-        #checks of building limit area matches height plateau area         
+        # Checks of building limit area matches height plateau area         
             valid = 4
-    
+
+        # This following method checks for gaps by comparing the values within the 2 coordinate arrays. 
         elif height_area == build_area:
-            #checks for gaps or building limit exceedings
+            # Checks for gaps or building limit exceedings
             if not np.array_equal(build_temp,height_temp):
                 valid = 5
           
 
     return valid
 
-#extracts data from json and creates NewPlateauObject
+# We the have two methods that extract all building limits as well as all height plateaus. 
+# At the end of this function a new object is created With the object creation the data is being written to the google sheet
+
+# Extracts data from json and creates NewPlateauObject if exist on Google Sheet
 def createPlateaus(data):
      plateauToImport =data['height_plateaus']['features']
      lenPlateauToImport =len(data['height_plateaus']['features'])
@@ -138,7 +142,7 @@ def createPlateaus(data):
         plateauData = plateauToImport[items]['geometry']['coordinates']
         NewPlateauObject(str(plateaus),str(plateauData),str(id))
 
-#extracts data from json and creates NewLimitObject
+# Extracts data from json and creates NewLimitObject on Google Sheet
 def createLimits(data):
     limitsToImport =data['building_limits']['features']
     lenBuildingToImport =len(data['building_limits']['features'])
@@ -157,7 +161,8 @@ def getPlateaus(data):
 def newInput(data):
     result = checkInput(data)
 
-    #error codes 
+    # The result of "valid" is then returned to ‚newInput‘ and interpreted accordingly to the value it returned. 
+    # Based on this the json data is then either uploaded or an error is returned to the user 
     if result == 1:
         return 'Key(s) Missing! Building limit or height Plateau key is missing'
     elif result == 2:
@@ -176,25 +181,28 @@ def newInput(data):
 
 
 class api_requests(Resource):
-    #get request that provides all info to 
+    # Get all data splited
     def get(self):
         data = wks.get_all_values()
         return {'All Objects': data}, 200
 
-    
+    # POST - data (BuildingLimits and Heigth plateaus) and return splited data.
+    # post request to upload new data to specific row in spreadsheet.
+
     def post(self):
-        #post request to upload new data to specific row in spreadsheet
         parser = reqparse.RequestParser()
         arguments = request.data
         reply = newInput(json.loads(arguments))
-        return reply, 
-        #if condition for error
-   
+        return reply,    
         
 
-#different api endpoints
+# API - /data endpoints to expose data
 api.add_resource(api_requests, '/data') #api request for data in database
 
+# Just an additional for home page
+@app.route("/")
+def homePage():
+    return "<p> Please use 'http://127.0.0.1:5000/data' to test the API! </p>"
    
 if __name__ == "__main__":
     app.run(debug=True)
