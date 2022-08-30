@@ -8,7 +8,6 @@ from flask import Flask
 from flask import request
 from flask_restful import Resource, Api, reqparse
 from typing_extensions import Required
-import pandas as pd
 import gspread
 import json
 import numpy as np
@@ -200,9 +199,9 @@ class api_requests(Resource):
 api.add_resource(api_requests, '/data') #api request for data in database
 
 # Just an additional for home page
-@app.route("/")
-def homePage():
-    return "<p> Please use 'http://127.0.0.1:5000/data' to test the API! </p>"
+# @app.route("/")
+# def homePage():
+#     return "<p> Please use 'http://127.0.0.1:5000/data' to test the API! </p>"
    
 if __name__ == "__main__":
     app.run(debug=True)
