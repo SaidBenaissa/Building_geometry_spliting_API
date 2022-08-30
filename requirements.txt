@@ -1,8 +1,6 @@
 flask
 flask-restful
 typing_extensions
-gspread
-json
 numpy
 typing
 urllib3
