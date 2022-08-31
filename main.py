@@ -67,8 +67,11 @@ class NewPlateauObject:
         wks.update('C'+ id, plateauData)
         wks.update('D'+ id, plateau)
 
-
+###################################### CheckInput ################################################################################
 # Verifies provided Data - makes sure that building limits and height plateaus as well as the indidvidual object type is 'polygon'
+# Input:
+# Output:
+##################################################################################################################################
 def checkInput(data):
     build_temp = []
     height_temp = []
@@ -89,17 +92,20 @@ def checkInput(data):
     if valid == 0:
         if data['building_limits']['type'] == 'FeatureCollection' and data['height_plateaus']['type'] == 'FeatureCollection':
             # Checks if both inputs are feature collections
-            pass
+            pass # valid data like valid =0
         else:
             valid = 2
             
         buildLen = len(data['building_limits']['features'])
+        # print(buildLen)
         heightLen = len(data['height_plateaus']['features'])
         if buildLen != heightLen:
-            # Checks if height_plateaus and building_limits have the same amount of data points
+            # Checks if height_plateaus and building_limits have the same amount of data points because they are not equal - need to much up
             valid = 3
         else:
-        # The next part retrieves all individual coordinates and stores them in a temporary array. At the end the sum is calculated and compared between height plateaus and building limit. 
+        # As said on the task theBlimits and HeitghPlateaus have on the site.
+        # The next part retrieves all individual coordinates and stores them in a temporary array.
+        #  At the end the sum is calculated and compared between height plateaus and building limit. 
         # (calculates total area of height plateaus and building limits and checks if they are equal)
             for items in data['building_limits']['features']:
                 for items2 in items['geometry']['coordinates']:
@@ -114,6 +120,12 @@ def checkInput(data):
                         height_area = height_area + (items3[0] + items3[1])
                         height_temp.append(items3[0])
                         height_temp.append(items3[1])
+                        
+        # logs
+        # print(build_temp)
+        # print("------------")
+        # print(height_temp) 
+
         if height_area != build_area:
         # Checks of building limit area matches height plateau area         
             valid = 4
@@ -129,16 +141,22 @@ def checkInput(data):
 
 # We the have two methods that extract all building limits as well as all height plateaus. 
 # At the end of this function a new object is created With the object creation the data is being written to the google sheet
-
-# Extracts data from json and creates NewPlateauObject if exist on Google Sheet
+# Extracts data from json and creates NewPlateauObject if exist
+###################################### createPlateaus ############################################################################
+# Input:
+# Output:
+##################################################################################################################################
 def createPlateaus(data):
      plateauToImport =data['height_plateaus']['features']
      lenPlateauToImport =len(data['height_plateaus']['features'])
+    #  plateaus = getPlateaus(data)
      for items in range(lenPlateauToImport):
         id = increaseID()
-        plateaus = getPlateaus(data)
+        plateaus = getPlateaus(data) #old
         plateaus = plateaus[items]
         plateauData = plateauToImport[items]['geometry']['coordinates']
+        ##  this line used Google API for writing data on googlesheet try not used a lot to avoid api quota limit
+        #uncomment for cloud test
         NewPlateauObject(str(plateaus),str(plateauData),str(id))
 
 # Extracts data from json and creates NewLimitObject on Google Sheet
@@ -148,6 +166,8 @@ def createLimits(data):
     for items in range(lenBuildingToImport):
         id = increaseID()
         limitData = limitsToImport[items]['geometry']['coordinates']
+        ##  this line used Google API for writing buildingLimits data on googlesheet try not used a lot to avoid api quota limit
+        #uncomment for cloud test#
         NewLimitObject(str(limitData),str(id))
 
 def getPlateaus(data):
@@ -158,7 +178,7 @@ def getPlateaus(data):
     return elevations
 
 def newInput(data):
-    result = checkInput(data)
+    result = checkInput(data) # checkInput return the value `valid` that represent error type or pass
 
     # The result of "valid" is then returned to ‚newInput‘ and interpreted accordingly to the value it returned. 
     # Based on this the json data is then either uploaded or an error is returned to the user 
@@ -199,9 +219,9 @@ class api_requests(Resource):
 api.add_resource(api_requests, '/data') #api request for data in database
 
 # Just an additional for home page
-# @app.route("/")
-# def homePage():
-#     return "<p> Please use 'http://127.0.0.1:5000/data' to test the API! </p>"
+@app.route("/")
+def homePage():
+    return "<p> Please use '/data' to your URL for (POST, GET) request to test the API! </p>"
    
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,5 +1,3 @@
-//there is a typo in "building limits causing json interpreter to not recognize the keys"
-
 {   
     "building_limitss":
     { "type": "FeatureCollection",

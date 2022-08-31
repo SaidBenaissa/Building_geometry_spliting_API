@@ -8,7 +8,7 @@ Implementation of a programmatic API with a clean interface that consumes buildi
 
 * Runtime environment:
 
-    ```
+    ```bash
     mkdir geo_app # Create project directory.
     python3 -m venv ./geo_app_env # Create Python3 env-variable.
     source ./geo_app_env/bin/activate # Activat env-variable.
@@ -165,7 +165,6 @@ Implementation of a programmatic API with a clean interface that consumes buildi
             
 
         return valid
-
 ```
 
 The next part of the code checks if the type of the input is a collection of features for both, building limits and height plateaus.
@@ -352,13 +351,1341 @@ API testing documentation and also different language code (js, py, java..). You
 
 ![ API testing documentation and also different language code (js, py, java ....) ](./pictures/postmanTest.png)
 
+* Data input - Assumption - based on `https://geojson.io`
+
+In order to create our JSON data we have used the `https://geojson.io/#map=8/62.063/15.238`
+For testing our API we made data input assumption we have tested with 4 types of inputs (`JSON valid data json file`, `Keys missing.json`, `Ǹot Feature collection json data` and `Height plateaus outside of building limit json file data` , then `total sizes are not matching`).
 
 
-* Data input - Assumption
+Below you have all type of JSON iput data:
+
+* Case 1: `ValidData.json` -> BuildingLimits, HeightPlateaus -> valid inputs.
+
+```json
+{   
+    "building_limits":
+    { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },"height_plateaus":
+  { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":6},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":5},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+* Case 2: `Keys missing.json` -> `building_limitss`, `height_plateaaus` keys aren't valid. There is a typo in "building limits causing json interpreter to not recognize the keys"
+
+```json
+//there is a typo in "building limits causing json interpreter to not recognize the keys"
+
+{   
+    "building_limitss":
+    { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                9.41552734375,
+                50.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },"height_plateaaus":
+  { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":6},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":5},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
+
+* Case 3: `noFeatureCollection.json` -> sadsFeatureCollection -> isn't FeatureCollection.
+
+```json
+// "The input Type is required to be a Feature Collection"
+{   
+    "building_limits":
+    { "type": "sadsFeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },"height_plateaus":
+  { "type": "Polygon",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":6},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":5},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
+
+* Case 4: `HpOutsideOfBL.json` -> Height plateaus outside of building limit: Building limit is exceeded by the height plateaus = by manual not allowed
   
-  * Case 1: `ValidData.json` -> BuildingLimits, HeightPlateaus -> valid inputs.
-  * Case 2: `Keys missing.json` -> `building_limitss`, `height_plateaaus` keys aren't valid. There is a typo in "building limits causing json interpreter to not recognize the keys"
+```json
+// Height plateaus outide of building limit: Building limit is exceeded by the heigh plateaus = by manual not allowed
 
-  * Case 3: `noFeatureCollection.json` -> sadsFeatureCollection -> isn't FeatureCollection.
-  * Case 4: `HpOutsideOfBL.json` -> Height plateaus outside of building limit: Building limit is exceeded by the height plateaus = by manual not allowed
+{   
+    "building_limits":
+    { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                9.41552734375,
+                50.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },"height_plateaus":
+  { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":6},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":5},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}
+```
 
+* Case 4: `total sizes are not matching.json` ->  by manual we are not allowed to have gaps (building limit but no height plateau) if total area of building limit is not equal to total area of heigh plateau we get error /check input
+
+```json
+{   
+    "building_limits":
+    { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },"height_plateaus":
+  { "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.41552734375,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                49.710272582105695
+              ],
+              [
+                10.96435546875,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                51.33061163769853
+              ],
+              [
+                8.41552734375,
+                49.710272582105695
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":4},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.404296875,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.00773901463687
+              ],
+              [
+                10.590820312499998,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.56928286558243
+              ],
+              [
+                9.404296875,
+                50.00773901463687
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":6},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                8.72314453125,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                50.764259357116465
+              ],
+              [
+                9.4921875,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                51.20688339486559
+              ],
+              [
+                8.72314453125,
+                50.764259357116465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"elevation":5},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.8876953125,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                50.736455137010665
+              ],
+              [
+                10.6787109375,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                51.193115244645874
+              ],
+              [
+                9.8876953125,
+                50.736455137010665
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}
+```

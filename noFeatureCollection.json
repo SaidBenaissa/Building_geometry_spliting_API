@@ -1,4 +1,3 @@
-// "The input Type is required to be a Feature Collection"
 {   
     "building_limits":
     { "type": "sadsFeatureCollection",
