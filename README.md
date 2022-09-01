@@ -626,8 +626,6 @@ Below you have all type of JSON iput data:
 * Case 2: `Keys missing.json` -> `building_limitss`, `height_plateaaus` keys aren't valid. There is a typo in "building limits causing json interpreter to not recognize the keys"
 
 ```json
-//there is a typo in "building limits causing json interpreter to not recognize the keys"
-
 {   
     "building_limitss":
     { "type": "FeatureCollection",
@@ -890,10 +888,9 @@ Below you have all type of JSON iput data:
 
 ```
 
-* Case 3: `noFeatureCollection.json` -> sadsFeatureCollection -> isn't FeatureCollection.
+* Case 3: `noFeatureCollection.json` -> sadsFeatureCollection -> isn't FeatureCollection ("The input Type is required to be a Feature Collection").
 
 ```json
-// "The input Type is required to be a Feature Collection"
 {   
     "building_limits":
     { "type": "sadsFeatureCollection",
@@ -1159,8 +1156,6 @@ Below you have all type of JSON iput data:
 * Case 4: `HpOutsideOfBL.json` -> Height plateaus outside of building limit: Building limit is exceeded by the height plateaus = by manual not allowed
   
 ```json
-// Height plateaus outide of building limit: Building limit is exceeded by the heigh plateaus = by manual not allowed
-
 {   
     "building_limits":
     { "type": "FeatureCollection",

@@ -19,14 +19,13 @@ api = Api(app)
 data = ''
 
 
-# Connects to google sheets API
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
+# Connects to google sheets API 
+scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 sa = gspread.service_account('credentials.json', scope)
 sh = sa.open("output_final")
 wks = sh.worksheet("Sheet1")
 
-# Creates the column names in the google sheet
+# Creates method definition the column names in the google sheet
 def createColNames():
     wks.update('A1', 'ObjectID')
     wks.update('B1', 'ObjectType')
@@ -34,12 +33,12 @@ def createColNames():
     wks.update('D1', 'Plateaus')
 
 
-# Creates row names for google sheet
+# Creates row names for google sheet (CreatColNames() call)
 createColNames()
 
 id = wks.acell('E1').value
 
-# Counter autoincrements ID for grabbing object by ID
+# Counter auto-increments ID for grabbing object by ID
 def increaseID():
     id = int(wks.acell('E1').value)
     id = id + 1
@@ -147,10 +146,11 @@ def createPlateaus(data):
         id = increaseID()
         plateaus = getPlateaus(data)  # old
         plateaus = plateaus[items]
+        # plateauData = plateauToImport[items]
         plateauData = plateauToImport[items]['geometry']['coordinates']
         # this line used Google API for writing data on googlesheet try not used a lot to avoid api quota limit
         # Uncomment the next link for local data test
-        NewPlateauObject(str(plateaus), str(plateauData), str(id))
+       # # NewPlateauObject(str(plateaus), str(plateauData), str(id))
 
 # Extracts data from json and creates NewLimitObject on Google Sheet
 def createLimits(data):
@@ -158,10 +158,11 @@ def createLimits(data):
     lenBuildingToImport = len(data['building_limits']['features'])
     for items in range(lenBuildingToImport):
         id = increaseID()
+        # limitData = limitsToImport[items]
         limitData = limitsToImport[items]['geometry']['coordinates']
         # This line used Google API for writing buildingLimits data on googlesheet try not used a lot to avoid api quota limit
         # Uncomment the next link for local data test
-        NewLimitObject(str(limitData), str(id))
+        # #NewLimitObject(str(limitData), str(id))
 
 # Extracts data from json and creates HeightPlateaus on Google Sheet 
 def getPlateaus(data):
@@ -210,7 +211,7 @@ class api_requests(Resource):
     # POST - data (BuildingLimits and Heigth plateaus) and return splited data.
     # post request to upload new data to specific row in spreadsheet.
     def post(self):
-        parser = reqparse.RequestParser()
+        # parser = reqparse.RequestParser()
         arguments = request.data # Here input data sent via post request
         reply = newInput(json.loads(arguments))
         return reply, 201
@@ -222,7 +223,7 @@ api.add_resource(api_requests, '/data')  # api request for data in database
 # Just an additional for home page
 @app.route("/")
 def homePage():
-    return "<p> Please use '/data' to your URL for (POST, GET) request to test the API! </p>"
+    return "<p> Please add '/data' to your URL for (POST, GET) request to test the API! </p>"
 
 
 if __name__ == "__main__":

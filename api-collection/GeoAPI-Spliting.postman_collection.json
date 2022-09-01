@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "b28aa3ec-9c30-4b01-92be-da3b0d9a9822",
+		"name": "GeoAPI-Spliting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10000194"
+	},
+	"item": [
+		{
+			"name": "GetData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostGapsOutBData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"building_limits\":\n    { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                9.41552734375,\n                50.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  },\"height_plateaus\":\n  { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":6},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":5},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostMissingKeyData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"building_limitss\":\n    { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                9.41552734375,\n                50.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  },\"height_plateaaus\":\n  { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":6},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":5},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostNoFeatureCollData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"building_limits\":\n    { \"type\": \"sadsFeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  },\"height_plateaus\":\n  { \"type\": \"Polygon\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":6},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":5},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostNotRecogisedkeys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"building_limitss\":\n    { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                9.41552734375,\n                50.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  },\"height_plateaaus\":\n  { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":6},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":5},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostCorrectData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"building_limits\":\n    { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  },\"height_plateaus\":\n  { \"type\": \"FeatureCollection\",\n    \"features\": [\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.41552734375,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                49.710272582105695\n              ],\n              [\n                10.96435546875,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                51.33061163769853\n              ],\n              [\n                8.41552734375,\n                49.710272582105695\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":4},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.404296875,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.00773901463687\n              ],\n              [\n                10.590820312499998,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.56928286558243\n              ],\n              [\n                9.404296875,\n                50.00773901463687\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":6},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                8.72314453125,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                50.764259357116465\n              ],\n              [\n                9.4921875,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                51.20688339486559\n              ],\n              [\n                8.72314453125,\n                50.764259357116465\n              ]\n            ]\n          ]\n        }\n      },\n      {\n        \"type\": \"Feature\",\n        \"properties\": {\"elevation\":5},\n        \"geometry\": {\n          \"type\": \"Polygon\",\n          \"coordinates\": [\n            [\n              [\n                9.8876953125,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                50.736455137010665\n              ],\n              [\n                10.6787109375,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                51.193115244645874\n              ],\n              [\n                9.8876953125,\n                50.736455137010665\n              ]\n            ]\n          ]\n        }\n      }\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://said-project-360821.lm.r.appspot.com/data",
+					"protocol": "https",
+					"host": [
+						"said-project-360821",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
