@@ -1,6 +1,6 @@
 from array import array
-from distutils.command.build import build
-from distutils.command.build_clib import build_clib
+# from distutils.command.build import build
+# from distutils.command.build_clib import build_clib
 from importlib.metadata import requires
 from operator import truediv
 from typing import Any
@@ -150,7 +150,7 @@ def createPlateaus(data):
         plateauData = plateauToImport[items]['geometry']['coordinates']
         # this line used Google API for writing data on googlesheet try not used a lot to avoid api quota limit
         # Uncomment the next link for local data test
-       # # NewPlateauObject(str(plateaus), str(plateauData), str(id))
+        NewPlateauObject(str(plateaus), str(plateauData), str(id))
 
 # Extracts data from json and creates NewLimitObject on Google Sheet
 def createLimits(data):
@@ -162,7 +162,7 @@ def createLimits(data):
         limitData = limitsToImport[items]['geometry']['coordinates']
         # This line used Google API for writing buildingLimits data on googlesheet try not used a lot to avoid api quota limit
         # Uncomment the next link for local data test
-        # #NewLimitObject(str(limitData), str(id))
+        NewLimitObject(str(limitData), str(id))
 
 # Extracts data from json and creates HeightPlateaus on Google Sheet 
 def getPlateaus(data):
