@@ -46,7 +46,7 @@ def increaseID():
     return id
 
 # Creates new limit line on google sheet
-class NewLimitObject:
+class NewLimitObject: # Building limits class
 
     def __init__(self, data, id):
         self.id = id
@@ -57,7 +57,7 @@ class NewLimitObject:
         wks.update('C' + id, data)
 
 # Creates new plateau line on google sheet
-class NewPlateauObject:
+class NewPlateauObject: # Heigth plateau 
 
     def __init__(self, plateau, plateauData, id):
         self.id = id
